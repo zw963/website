@@ -33,7 +33,7 @@ class LegacyRedirectHandler
   def call(context)
     response = context.response
     path = context.request.path.rchop('/')
-    if new_url = REDIRECTS[path]?
+    if (new_url = REDIRECTS[path]?)
       Lucky::Log.dexter.info { {handled_by: LegacyRedirectHandler.name} }
       response.status_code = HTTP::Status::MOVED_PERMANENTLY.value
       response.headers["Location"] = new_url

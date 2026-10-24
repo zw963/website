@@ -16,7 +16,7 @@ abstract class HTML2Lucky::Tag
   end
 
   def method_name
-    if renamed_tag_method = Lucky::BaseTags::RENAMED_TAGS.to_h.invert[tag_name]?
+    if (renamed_tag_method = Lucky::BaseTags::RENAMED_TAGS.to_h.invert[tag_name]?)
       renamed_tag_method
     elsif custom_tag?
       "tag #{wrap_quotes(tag_name)}"
